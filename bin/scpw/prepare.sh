@@ -32,8 +32,8 @@ sudo chown -R test2:test2 /home/test2
 sudo chmod o-r /home/test1
 sudo chmod o-r /home/test2
 
-stat /home/test1
-stat /home/test2
+sudo stat /home/test1
+sudo stat /home/test2
 
 echo "用户和工作目录创建完成！"
 
@@ -51,6 +51,6 @@ sudo echo "123456" > /home/test2/dir1/file1_2
 
 # 到 /home/test1 和 /home/test2 目录下
 cd /home/test1
-tree -ah
+tree
 cd /home/test2
-tree -ah
+tree
