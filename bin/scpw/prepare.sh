@@ -22,10 +22,10 @@ mkdir scpw-test-dir
 cd scpw-test-dir
 mkdir dir1
 echo "12345" > file1
-mkdir /dir1/dir1_1
-echo "12345" > /dir1/file1_1
-echo "12345" > /dir1/file1_2
-mkdir /dir1/dir1_2
+mkdir dir1/dir1_1
+echo "12345" > dir1/file1_1
+echo "12345" > dir1/file1_2
+mkdir dir1/dir1_2
 
 echo "用户和工作目录创建完成！"
 
