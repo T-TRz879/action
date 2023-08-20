@@ -32,6 +32,9 @@ sudo chown -R test2:test2 /home/test2
 sudo chmod o+wr /home/test1
 sudo chmod o+wr /home/test2
 
+cd /home
+ll -a
+
 echo "用户和工作目录创建完成！"
 
 # test1中创建文件
