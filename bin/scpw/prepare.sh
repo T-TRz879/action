@@ -25,8 +25,8 @@ sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test1111") test1
 sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test2222") test2
 
 # 设置工作目录的权限，使其归属于各自的用户
-sudo chown -R test1:test1 /home/test1/workspace
-sudo chown -R test2:test2 /home/test2/workspace
+sudo chown -R test1:test1 /home/test1
+sudo chown -R test2:test2 /home/test2
 
 # 设置他人不可读
 sudo chmod o-r /home/test1
@@ -35,16 +35,16 @@ sudo chmod o-r /home/test2
 echo "用户和工作目录创建完成！"
 
 # test1中创建文件
-echo "123456" > /home/test1/file1
-mkdir -p /home/test1/dir1/dir1_1
-echo "123456" > /home/test1/dir1/file1_1
-echo "123456" > /home/test1/dir1/file1_2
+sudo echo "123456" > /home/test1/file1
+sudo mkdir -p /home/test1/dir1/dir1_1
+sudo echo "123456" > /home/test1/dir1/file1_1
+sudo echo "123456" > /home/test1/dir1/file1_2
 
 # test2中创建文件
-echo "123456" > /home/test2/file1
-mkdir -p /home/test2/dir1/dir1_1
-echo "123456" > /home/test2/dir1/file1_1
-echo "123456" > /home/test2/dir1/file1_2
+sudo echo "123456" > /home/test2/file1
+sudo mkdir -p /home/test2/dir1/dir1_1
+sudo echo "123456" > /home/test2/dir1/file1_1
+sudo echo "123456" > /home/test2/dir1/file1_2
 
 # 到 /home/test1 和 /home/test2 目录下
 cd /home/test1
