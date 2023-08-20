@@ -15,6 +15,10 @@ jobs:
           ls ${{ github.workspace }}
       - name: Prepare test-case
         run: |
-          chmod +x ${{ github.workspace }}/bin/scpw/create_file_floder.exp
           chmod +x ${{ github.workspace }}/bin/scpw/prepare.sh
           sh ${{ github.workspace }}/bin/scpw/prepare.sh
+          chmod +x ${{ github.workspace }}/bin/scpw/create_file_floder.exp
+          sh ${{ github.workspace }}/bin/scpw/create_file_floder.exp 1
+          sh ${{ github.workspace }}/bin/scpw/create_file_floder.exp 2
+          chmod +x ${{ github.workspace }}/bin/scpw/after.sh
+          sh ${{ github.workspace }}/bin/scpw/after.sh

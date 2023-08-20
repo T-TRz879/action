@@ -31,15 +31,3 @@ sudo useradd -m -s /bin/bash -p $(openssl passwd -1 $password2) $username2
 # 设置工作目录的权限，使其归属于各自的用户
 sudo chown -R $username1:$username1 /home/$username1
 sudo chown -R $username2:$username2 /home/$username2
-
-./send_with_redirection.exp 1
-./send_with_redirection.exp 2
-
-echo "用户和工作目录创建完成！"
-
-# 到 /home/test1 和 /home/test2 目录下
-cd /home/$username1
-sudo tree -ph
-
-cd /home/$username2
-sudo tree -ph
