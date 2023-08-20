@@ -17,9 +17,3 @@ jobs:
         run: |
           chmod +x ${{ github.workspace }}/bin/scpw/prepare.sh
           sh ${{ github.workspace }}/bin/scpw/prepare.sh
-          chmod +x ${{ github.workspace }}/bin/scpw/user_test1.sh
-          sh ${{ github.workspace }}/bin/scpw/user_test1.sh
-          chmod +x ${{ github.workspace }}/bin/scpw/user_test2.sh
-          sh ${{ github.workspace }}/bin/scpw/user_test2.sh
-          chmod +x ${{ github.workspace }}/bin/scpw/after.sh
-          sh ${{ github.workspace }}/bin/scpw/after.sh

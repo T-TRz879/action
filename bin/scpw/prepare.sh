@@ -17,13 +17,20 @@ else
     echo "无SSH进程"
 fi
 
-# 创建用户test1
-sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test1111") test1
+cd ~
+mkdir scpw-test-dir
+cd scpw-test-dir
+mkdir dir1
+echo "12345" > file1
+mkdir /dir1/dir1_1
+echo "12345" > /dir1/file1_1
+echo "12345" > /dir1/file1_2
+mkdir /dir1/dir1_2
 
-# 创建用户test2
-sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test2222") test2
+echo "用户和工作目录创建完成！"
 
-
-# 设置工作目录的权限，使其归属于各自的用户
-sudo chown -R test1:test1 /home/test1
-sudo chown -R test2:test2 /home/test2
+# 到 /home/test1 和 /home/test2 目录下
+cd ~/scpw-test-dir
+stat .
+pwd
+tree -hp
