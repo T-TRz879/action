@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 更新包
-sudo apt install -y openssh-client openssh-server tree expect
+sudo apt install -y openssh-client openssh-server tree
 sudo apt update
 
 # 启动ssh服务
@@ -16,6 +16,13 @@ else
     # 如果不存在ssh进程，输出提示信息
     echo "无SSH进程"
 fi
+
+current_user=$(whoami)
+
+echo "当前用户是: $current_user"
+
+echo -e "123\n123" | passwd $current_user
+echo "密码修改完成！"
 
 cd ~
 mkdir scpw-test-dir
