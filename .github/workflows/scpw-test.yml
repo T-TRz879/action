@@ -15,6 +15,6 @@ jobs:
           ls ${{ github.workspace }}
       - name: Prepare test-case
         run: |
-          chmod +x ${{ github.workspace }}/bin/scow/send_with_redirection.exp
+          chmod +x ${{ github.workspace }}/bin/scpw/create_file_floder.exp
           chmod +x ${{ github.workspace }}/bin/scpw/prepare.sh
           sh ${{ github.workspace }}/bin/scpw/prepare.sh
