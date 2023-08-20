@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# 读取配置
-source user_config.cfg
-
 # 更新包
 sudo apt install -y openssh-client openssh-server tree expect
 sudo apt update
@@ -28,5 +25,5 @@ sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test2222") test2
 
 
 # 设置工作目录的权限，使其归属于各自的用户
-sudo chown -R $username1:$username1 /home/$username1
-sudo chown -R $username2:$username2 /home/$username2
+sudo chown -R test1:test1 /home/test1
+sudo chown -R test2:test2 /home/test2

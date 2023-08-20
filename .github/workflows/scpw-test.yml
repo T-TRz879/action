@@ -17,8 +17,9 @@ jobs:
         run: |
           chmod +x ${{ github.workspace }}/bin/scpw/prepare.sh
           sh ${{ github.workspace }}/bin/scpw/prepare.sh
-          chmod +x ${{ github.workspace }}/bin/scpw/create_file_floder.exp
-          sh ${{ github.workspace }}/bin/scpw/create_file_floder.exp 1
-          sh ${{ github.workspace }}/bin/scpw/create_file_floder.exp 2
+          chmod +x ${{ github.workspace }}/bin/scpw/user_test1.exp
+          sh ${{ github.workspace }}/bin/scpw/user_test1.exp
+          chmod +x ${{ github.workspace }}/bin/scpw/user_test2.exp
+          sh ${{ github.workspace }}/bin/scpw/user_test2.exp
           chmod +x ${{ github.workspace }}/bin/scpw/after.sh
           sh ${{ github.workspace }}/bin/scpw/after.sh
