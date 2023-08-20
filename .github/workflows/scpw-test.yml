@@ -5,6 +5,9 @@ jobs:
   SCPW-Test-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
       - name: Prepare test-case
         run: |
           chmod +x ${{ github.workspace }}/bin/scpw/prepare.sh
