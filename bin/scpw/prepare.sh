@@ -28,6 +28,10 @@ sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test2222") test2
 sudo chown -R test1:test1 /home/test1
 sudo chown -R test2:test2 /home/test2
 
+# 设置他人不可读
+sudo chmod o+wr /home/test1
+sudo chmod o+wr /home/test2
+
 echo "用户和工作目录创建完成！"
 
 # test1中创建文件
@@ -49,5 +53,5 @@ cd /home/test2
 tree
 
 # 设置他人不可读
-sudo chmod o-r /home/test1
-sudo chmod o-r /home/test2
+sudo chmod o-wr /home/test1
+sudo chmod o-wr /home/test2
