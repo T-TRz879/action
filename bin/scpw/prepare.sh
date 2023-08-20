@@ -35,6 +35,9 @@ sudo chmod o-r /home/test2
 sudo stat /home/test1
 sudo stat /home/test2
 
+umask
+sudo umask
+
 echo "用户和工作目录创建完成！"
 
 # test1中创建文件
@@ -50,7 +53,9 @@ sudo echo "123456" > /home/test2/dir1/file1_1
 sudo echo "123456" > /home/test2/dir1/file1_2
 
 # 到 /home/test1 和 /home/test2 目录下
+sudo stat /home/test1/dir1
 cd /home/test1
 tree
+sudo stat /home/test2/dir1
 cd /home/test2
 tree
