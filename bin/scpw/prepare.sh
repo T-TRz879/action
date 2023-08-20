@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# 读取配置
+source user_config.cfg
+
 # 更新包
-sudo apt install -y openssh-client openssh-server tree
+sudo apt install -y openssh-client openssh-server tree expect
 sudo apt update
 
 # 启动ssh服务
@@ -19,41 +22,24 @@ fi
 
 
 # 创建用户test1
-sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test1111") test1
+sudo useradd -m -s /bin/bash -p $(openssl passwd -1 $password1) $username1
 
 # 创建用户test2
-sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test2222") test2
+sudo useradd -m -s /bin/bash -p $(openssl passwd -1 $password2) $username2
+
 
 # 设置工作目录的权限，使其归属于各自的用户
-sudo chown -R test1:test1 /home/test1
-sudo chown -R test2:test2 /home/test2
+sudo chown -R $username1:$username1 /home/$username1
+sudo chown -R $username2:$username2 /home/$username2
 
-# 设置他人不可读
-sudo chmod o+wr /home/test1
-sudo chmod o+wr /home/test2
+./send_with_redirection.exp 1
+./send_with_redirection.exp 2
 
 echo "用户和工作目录创建完成！"
 
-# test1中创建文件
-sudo mkdir -p /home/test1/dir1/dir1_1
-sudo echo "123456" > /home/test1/dir1/file1_1
-sudo echo "123456" > /home/test1/dir1/file1_2
-
-# test2中创建文件
-sudo mkdir -p /home/test2/dir1/dir1_1
-sudo echo "123456" > /home/test2/dir1/file1_1
-sudo echo "123456" > /home/test2/dir1/file1_2
-
 # 到 /home/test1 和 /home/test2 目录下
-cd /home/test1
-sudo stat .
-tree -ph
+cd /home/$username1
+sudo tree -ph
 
-cd /home/test2
-sudo stat .
-tree -ph
-
-
-# 设置他人不可读
-sudo chmod o-wr /home/test1
-sudo chmod o-wr /home/test2
+cd /home/$username2
+sudo tree -ph
