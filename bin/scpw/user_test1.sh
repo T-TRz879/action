@@ -1,6 +1,6 @@
 #!/usr/bin/expect -f
 
-sudo spawn su - test1
+spawn su - test1
 expect "Password:"
 send "test1111\r"
 expect "$ "
