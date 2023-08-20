@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # 更新包
-apt install -y openssh-client openssh-server tree
-apt update
+sudo apt install -y openssh-client openssh-server tree
+sudo apt update
 
 # 启动ssh服务
-/etc/init.d/ssh start
+sudo /etc/init.d/ssh start
 ssh_pid=$(ps -e | grep sshd | awk '{print $1}')
 
 # 检查ssh_pid是否为空
@@ -19,18 +19,18 @@ fi
 
 
 # 创建用户test1
-useradd -m -s /bin/bash -p $(openssl passwd -1 "test1111") test1
+sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test1111") test1
 
 # 创建用户test2
-useradd -m -s /bin/bash -p $(openssl passwd -1 "test2222") test2
+sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test2222") test2
 
 # 设置工作目录的权限，使其归属于各自的用户
-chown -R test1:test1 /home/test1/workspace
-chown -R test2:test2 /home/test2/workspace
+sudo chown -R test1:test1 /home/test1/workspace
+sudo chown -R test2:test2 /home/test2/workspace
 
 # 设置他人不可读
-chmod o-r /home/test1
-chmod o-r /home/test2
+sudo chmod o-r /home/test1
+sudo chmod o-r /home/test2
 
 echo "用户和工作目录创建完成！"
 
