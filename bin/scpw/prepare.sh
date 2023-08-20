@@ -17,14 +17,9 @@ else
     echo "无SSH进程"
 fi
 
-current_user=$(whoami)
+sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "scpwuser123") scpwuser
 
-echo "当前用户是: $current_user"
-
-echo -e "123\n123" | passwd $current_user
-echo "密码修改完成！"
-
-cd ~
+cd /tmp
 mkdir scpw-test-dir
 cd scpw-test-dir
 mkdir dir1
@@ -37,7 +32,7 @@ mkdir dir1/dir1_2
 echo "用户和工作目录创建完成！"
 
 # 到 /home/test1 和 /home/test2 目录下
-cd ~/scpw-test-dir
+cd /tmp/scpw-test-dir
 stat .
 pwd
 tree -hp
