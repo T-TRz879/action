@@ -46,6 +46,8 @@ mkdir -p /home/test2/dir1/dir1_1
 echo "123456" > /home/test2/dir1/file1_1
 echo "123456" > /home/test2/dir1/file1_2
 
-# 到home目录下
-cd /home
+# 到 /home/test1 和 /home/test2 目录下
+cd /home/test1
+tree
+cd /home/test2
 tree
