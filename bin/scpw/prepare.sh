@@ -20,14 +20,11 @@ else
     echo "无SSH进程"
 fi
 
-
 # 创建用户test1
-sudo useradd -m -s /bin/bash $username1
-echo "$username1:$password1" | sudo chpasswd
+sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test1111") test1
 
 # 创建用户test2
-sudo useradd -m -s /bin/bash $username2
-echo "$username2:$password2" | sudo chpasswd
+sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "test2222") test2
 
 
 # 设置工作目录的权限，使其归属于各自的用户
