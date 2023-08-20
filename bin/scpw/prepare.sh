@@ -22,10 +22,12 @@ fi
 
 
 # 创建用户test1
-sudo useradd -m -s /bin/bash -p $(openssl passwd -1 $password1) $username1
+sudo useradd -m -s /bin/bash $username1
+echo "$username1:$password1" | sudo chpasswd
 
 # 创建用户test2
-sudo useradd -m -s /bin/bash -p $(openssl passwd -1 $password2) $username2
+sudo useradd -m -s /bin/bash $username2
+echo "$username2:$password2" | sudo chpasswd
 
 
 # 设置工作目录的权限，使其归属于各自的用户
