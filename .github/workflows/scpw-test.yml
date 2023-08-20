@@ -1,0 +1,11 @@
+name: GitHub Actions SCPW Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: ["push", "pull_request"]
+jobs:
+  SCPW-Test-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare test-case
+        run: |
+          chmod +x ${{ github.workspace }}/bin/scpw/prepare.sh
+          sh ${{ github.workspace }}/bin/scpw/prepare.sh
