@@ -19,10 +19,15 @@ fi
 
 sudo useradd -m -s /bin/bash -p $(openssl passwd -1 "scpwuser123") scpwuser
 
-mkdir /tmp/scpw-test-dir
-cd /tmp/scpw-test-dir
+mkdir /tmp/scpw-local-dir
+cd /tmp/scpw-local-dir
 sudo chmod -R 777 .
-tree -hp
+stat .
+
+mkdir /tmp/scpw-remote-dir
+cd /tmp/scpw-remote-dir
+sudo chmod -R 777 .
+stat .
 
 mkdir /tmp/no-permission-dir 
 cd /tmp/no-permission-dir
